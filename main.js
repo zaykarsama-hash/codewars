@@ -48,8 +48,6 @@ function pattern(legs){
           body[i]=" ".repeat(s2)+body[i];
         };
         
-        
-        
       }
 
       while(body.length!=mys.length){
@@ -62,7 +60,7 @@ function pattern(legs){
   return a.body.join("\n");
 }
 
-  console.log(pattern([5,1,2,3]));
+  console.log(pattern([1,2,3]));
 
   //  console.log();
   //  console.log()
