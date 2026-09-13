@@ -1,16 +1,21 @@
 
 function pattern(legs){
-  let [mys,lr,C,o,L] = [[],[],legs.toSorted(),true,(8+Math.max(...legs))];
-  for (let i = legs.length-1; i >= 0 ; i--){
-    switch (o) {
-      case true:
-        lr.push(C[i]);
-        break;
-      default:
-        lr.unshift(C[i]);
-        break;
+  let [mys,lr,L] = [[],[],(8+Math.max(...legs))];
+  if(!(legs.length==1)){
+    let [C,o]=[legs.sort(),true]
+    for (let i = legs.length-1; i >= 0 ; i--){
+      switch (o) {
+        case true:
+          lr.push(C[i]);
+          break;
+        default:
+          lr.unshift(C[i]);
+          break;
+      }
+      o=(o==true)?false:true;
     }
-    o=(o==true)?false:true;
+  }else{
+    lr=[legs[0]];
   }
   class form{
     constructor(l,c=0,p=0){
@@ -22,7 +27,7 @@ function pattern(legs){
       if ((l==c)||(l < c)) {
         body[6]=body[6].split("");
         body[6][7]="";
-        body[6][8]="\_";
+        body[6][8]="\\_";
         body[6]=body[6].join("");
       }else if ((c)&&(l > c)) {
         for (let i = 0; i < body.length; i++) {
@@ -33,12 +38,12 @@ function pattern(legs){
         for (; i < s+1; i++) {
           body[5+i]=body[5+i].split("");
           body[5+i][6+i]="";
-          body[5+i][7+i]="\ ";
+          body[5+i][7+i]="\\ ";
           body[5+i]=body[5+i].join("");
         }
         body[5+i]=body[5+i].split("");
         body[5+i][6+i]="";
-        body[5+i][7+i]="\_";
+        body[5+i][7+i]="\\_";
         body[5+i]=body[5+i].join("");
         };
       }else if(!c){
@@ -75,11 +80,16 @@ function pattern(legs){
     }
   }
 
-  {mys.push((new form(lr[0],lr[1])).body);
-  let i = 1;
-  for (; i < lr.length-1; i++) {
-    mys.push((new form(lr[i],lr[i+1],lr[i-1])).body);
-  }mys.push((new form(lr[i],0,lr[i-1])).body)}
+  if(!(legs.length==1)){
+    mys.push((new form(lr[0],lr[1])).body);
+    let i = 1;
+    for (; i < lr.length-1; i++) {
+      mys.push((new form(lr[i],lr[i+1],lr[i-1])).body);
+    }mys.push((new form(lr[i],0,lr[i-1])).body)
+  }else{
+    mys.push((new form(lr[0])).body);
+    return mys[0].join("\n");
+  }
 
   let S=[];
 
@@ -88,14 +98,13 @@ function pattern(legs){
     for (let j = 0; j < mys.length; j++) {
       h+=mys[j][i];
     }
-    h=h.replace(/\s+$/g,"")
     S.push(h)
   }
 
   return S.join("\n");
 }
 
-  console.log(pattern([1,2,3]));
+  console.log(pattern([3]));
 
   //  console.log();
   //  console.log()
@@ -108,7 +117,7 @@ function pattern(legs){
 
 // new Array(8+Math.max(...legs))
 
-// let S=[];
+// let S=[];               .replace(/\s+$/g,"")+((h.at(-1)=="_")?"":" ")
 
 // let space="  ";
 // space=space+"  "
@@ -183,8 +192,15 @@ function pattern(legs){
 
 //              + +              \n   + +      +o o+             \n  +o o+    +  u  +      + +   \n +  u  +    + ~ +      +o o+  \n  + ~ +       |       +  u  + \n    |       +-o-+      + ~ +  \n  +-o-+    /| o |\       |    \n_/| o |\__/ +-o-+ \    +-o-+  \n  +-o-+      | |   \__/| o |\_\n   | |       | |       +-o-+  \n   I I       I I        I I   
 
+`
+   + +      + +\n  +o o+    +o o+\n +  u  +  +  u  +\n  + ~ +    + ~ +\n    |        |\n  +-o-+    +-o-+\n_/| o |\__/| o |\_\n  +-o-+    +-o-+\n   I I      I I' to equal '   + +   \n  +o o+  \n +  u  + \n  + ~ +  \n    |    \n  +-o-+  \n_/| o |\_\n  +-o-+  \n   I I   '
+Completed in 3ms
+Multi person tests
+expected '             + +\n   + +      +o o+\n  +o o+    +  u  +      + +\n +  u  +    + ~ +      +o o+\n  + ~ +       |       +  u  +\n    |       +-o-+      + ~ +\n  +-o-+    /| o |\       |\n_/| o |\__/ +-o-+ \    +-o-+\n  +-o-+      | |   \__/| o |\_\n   | |       | |       +-o-+\n   I I       I I        I I' to equal '             + +              \n   + +      +o o+             \n  +o o+    +  u  +      + +   \n +  u  +    + ~ +      +o o+  \n  + ~ +       |       +  u  + \n    |       +-o-+      + ~ +  \n  +-o-+    /| o |\       |    \n_/| o |\__/ +-o-+ \    +-o-+  \n  +-o-+      | |   \__/| o |\_\n   | |       | |       +-o-+  \n   I I       I I        I I   '
 
 
 
+`
+// console.log('   + +      + +   \n  +o o+    +o o+  \n +  u  +  +  u  + \n  + ~ +    + ~ +  \n    |        |    \n  +-o-+    +-o-+  \n_/| o |\__/| o |\_\n  +-o-+    +-o-+  \n   I I      I I   ')
 
-
+// console.log('   + +   \n  +o o+  \n +  u  + \n  + ~ +  \n    |    \n  +-o-+  \n_/| o |\_\n  +-o-+  \n   I I   ')
