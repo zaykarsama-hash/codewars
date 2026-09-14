@@ -1,11 +1,10 @@
 
-function lcs(x,y) {
+function lcs(str1,str2) {
 
 
-  
   return "";
 }
-  console.log(lcs("abcdef", "abc" ));
+  console.log(lcs("abcdef", "acf"));
 
   //  console.log();
   //  console.log()
@@ -89,19 +88,3 @@ function lcs(x,y) {
 // function smod(a,b){
 //   return (b==0)?a:smod(b,a%b);
 // }
-
-
-//              + +              \n   + +      +o o+             \n  +o o+    +  u  +      + +   \n +  u  +    + ~ +      +o o+  \n  + ~ +       |       +  u  + \n    |       +-o-+      + ~ +  \n  +-o-+    /| o |\       |    \n_/| o |\__/ +-o-+ \    +-o-+  \n  +-o-+      | |   \__/| o |\_\n   | |       | |       +-o-+  \n   I I       I I        I I   
-
-`
-   + +      + +\n  +o o+    +o o+\n +  u  +  +  u  +\n  + ~ +    + ~ +\n    |        |\n  +-o-+    +-o-+\n_/| o |\__/| o |\_\n  +-o-+    +-o-+\n   I I      I I' to equal '   + +   \n  +o o+  \n +  u  + \n  + ~ +  \n    |    \n  +-o-+  \n_/| o |\_\n  +-o-+  \n   I I   '
-Completed in 3ms
-Multi person tests
-expected '             + +\n   + +      +o o+\n  +o o+    +  u  +      + +\n +  u  +    + ~ +      +o o+\n  + ~ +       |       +  u  +\n    |       +-o-+      + ~ +\n  +-o-+    /| o |\       |\n_/| o |\__/ +-o-+ \    +-o-+\n  +-o-+      | |   \__/| o |\_\n   | |       | |       +-o-+\n   I I       I I        I I' to equal '             + +              \n   + +      +o o+             \n  +o o+    +  u  +      + +   \n +  u  +    + ~ +      +o o+  \n  + ~ +       |       +  u  + \n    |       +-o-+      + ~ +  \n  +-o-+    /| o |\       |    \n_/| o |\__/ +-o-+ \    +-o-+  \n  +-o-+      | |   \__/| o |\_\n   | |       | |       +-o-+  \n   I I       I I        I I   '
-
-
-
-`
-// console.log('   + +      + +   \n  +o o+    +o o+  \n +  u  +  +  u  + \n  + ~ +    + ~ +  \n    |        |    \n  +-o-+    +-o-+  \n_/| o |\__/| o |\_\n  +-o-+    +-o-+  \n   I I      I I   ')
-
-// console.log('   + +   \n  +o o+  \n +  u  + \n  + ~ +  \n    |    \n  +-o-+  \n_/| o |\_\n  +-o-+  \n   I I   ')
