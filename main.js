@@ -1,110 +1,11 @@
 
-function pattern(legs){
-  let [mys,lr,L] = [[],[],(8+Math.max(...legs))];
-  if(!(legs.length==1)){
-    let [C,o]=[legs.sort(),true]
-    for (let i = legs.length-1; i >= 0 ; i--){
-      switch (o) {
-        case true:
-          lr.push(C[i]);
-          break;
-        default:
-          lr.unshift(C[i]);
-          break;
-      }
-      o=(o==true)?false:true;
-    }
-  }else{
-    lr=[legs[0]];
-  }
-  class form{
-    constructor(l,c=0,p=0){
-      let body =["   + +   ","  +o o+  "," +  u  + ","  + ~ +  ","    |    ","  +-o-+  ","_/| o |  ","  +-o-+  "]
-      for (let i = 0; i < l-1; i++) {
-        body.push("   | |   ")
-      };body.push("   I I   ");
-      let s=Math.abs(l-c)
-      if ((l==c)||(l < c)) {
-        body[6]=body[6].split("");
-        body[6][7]="";
-        body[6][8]="\\_";
-        body[6]=body[6].join("");
-      }else if ((c)&&(l > c)) {
-        for (let i = 0; i < body.length; i++) {
-          body[i]+=" ".repeat(s);
-        };
-        
-        {let i = 1
-        for (; i < s+1; i++) {
-          body[5+i]=body[5+i].split("");
-          body[5+i][6+i]="";
-          body[5+i][7+i]="\\ ";
-          body[5+i]=body[5+i].join("");
-        }
-        body[5+i]=body[5+i].split("");
-        body[5+i][6+i]="";
-        body[5+i][7+i]="\\_";
-        body[5+i]=body[5+i].join("");
-        };
-      }else if(!c){
-        body[6]=body[6].split("");
-        body[6][7]="";
-        body[6][8]="\\_";
-        body[6]=body[6].join("");
-      }
-      let s2=Math.abs(l-p)
-      if((p)&&(p<l)){
-        for (let i = 0; i < body.length; i++) {
-          body[i]=" ".repeat(s2)+body[i];
-        };
-        body[6]=body[6].split("");
-        body[6][s2]=" ";
-        body[6]=body[6].join("");
-        {let i=1;
-        for (; i < s2; i++){
-          body[6+i]=body[6+i].split("");
-          body[6+i][s2]="/";
-          body[6+i]=body[6+i].join("");
-        }
-        body[6+i]=body[6+i].split("");
-        body[6+i][0]="_";
-        body[6+i][1]="/";
-        body[6+i]=body[6+i].join("");
-        }
-      }
+function lcs(x,y) {
 
-      while(body.length!=L){
-        body.unshift(" ".repeat(body[3].length))
-      }
-      this.body=body;
-    }
-  }
 
-  if(!(legs.length==1)){
-    mys.push((new form(lr[0],lr[1])).body);
-    let i = 1;
-    for (; i < lr.length-1; i++) {
-      mys.push((new form(lr[i],lr[i+1],lr[i-1])).body);
-    }mys.push((new form(lr[i],0,lr[i-1])).body)
-  }else{
-    mys.push((new form(lr[0])).body);
-    return mys[0].join("\n");
-  }
-
-  let S=[];
-
-  for (let i = 0; i < L; i++) {
-    let h="";
-    for (let j = 0; j < mys.length; j++) {
-      h+=mys[j][i];
-    }
-    S.push(h)
-  }
-
-  return S.join("\n");
+  
+  return "";
 }
-
-  console.log(pattern([3]));
+  console.log(lcs("abcdef", "abc" ));
 
   //  console.log();
   //  console.log()
