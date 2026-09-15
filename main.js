@@ -1,6 +1,7 @@
 
 function lcs(str1,str2) {
-  let res=""
+  let res=/\ /g;
+  console.log(res.test(str1));
 
   return "he";
 }
