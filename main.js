@@ -1,8 +1,8 @@
 
 function lcs(str1,str2) {
+  let res=""
 
-
-  return "";
+  return "he";
 }
   console.log(lcs("abcdef", "acf"));
 
@@ -19,7 +19,7 @@ function lcs(str1,str2) {
 
 // let S=[];               .replace(/\s+$/g,"")+((h.at(-1)=="_")?"":" ")
 
-// let space="  ";
+// let space="  ";   sgp_e3cb05880bc40429_bb37241116143ef308432ddd1616bffd1881cc6c
 // space=space+"  "
 // // S.push();
 // S.push(space);
