@@ -1,19 +1,41 @@
 
-function lcs(str1,str2) {
-  let res=/\ /g;
-  console.log(res.test(str1));
+function lcs(s1,s2) {
+  
+  s1=s1.split("");s2=s2.split("");
+  let res="";
+  let Ind = 0;
+  for (let i = 0; i < s2.length; i++) {
+    const El = s2[i];
+    const RC = checker(s1,El,Ind);
+    res+=RC.el;
+    console.log(RC.el)
+    Ind=RC.ind;
+  }
 
-  return "he";
+  return Ind;
 }
-  console.log(lcs("abcdef", "acf"));
 
-  //  console.log();
+function checker(st,s,ind) {
+  if(st.includes(s)){
+    console.log(200)
+    for (let i = ind; i < st.length; i++) {
+      if (st[i] == s) {
+        return {ind:i+1,el:st[i]};
+      }
+    }
+  }else return {ind:ind,el:""};
+}
+
+
+  // console.log(lcs("abcdfe", "acfe"));
+
+   console.log(checker("abcdef","c",3).el);
   //  console.log()
 
 //     [i]   `${}`      .length        
 
 //   console.log()  for (let i = 0; i < .length; i++)
-
+    
 // \n \s+a-zA-Z
 
 // new Array(8+Math.max(...legs))
