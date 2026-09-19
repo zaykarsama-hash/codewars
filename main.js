@@ -30,7 +30,7 @@ function checker(st,s,ind) {
     return {ind:i,el:""};
   }  
 }
-
+// console.log(`#${s1}#${s2}#`)
 
   console.log(lcs("abcdefghijklmnopq",                                  "apcdefghijklmnobq"));
 
