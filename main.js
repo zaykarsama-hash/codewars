@@ -1,37 +1,41 @@
 
 function lcs(s1,s2) {
-  
+  if((!s1)||(!s2)){return ""}
   s1=s1.split("");s2=s2.split("");
+  let mys =[looper(s1,s2),looper(s2,s1)];
+  return mys;
+}
+function looper(st1,st2) {
   let res="";
   let Ind = 0;
-  for (let i = 0; i < s2.length; i++) {
-    const El = s2[i];
-    const RC = checker(s1,El,Ind);
-    res+=RC.el;
-    console.log(RC.el)
-    Ind=RC.ind;
+  for (let i = 0; i < st2.length; i++) {
+    const El = st2[i];
+    const RC = checker(st1,El,Ind);
+    try{
+      res=res+RC.el;
+      Ind=RC.ind;
+    }catch(err){}
   }
-
-  return Ind;
+  return res;
 }
-
 function checker(st,s,ind) {
+  let i = ind;
   if(st.includes(s)){
-    console.log(200)
-    for (let i = ind; i < st.length; i++) {
+    for (; i < st.length; i++) {
       if (st[i] == s) {
         return {ind:i+1,el:st[i]};
       }
     }
-  }else return {ind:ind,el:""};
+  }else {
+    return {ind:i,el:""};
+  }  
 }
 
 
-  // console.log(lcs("abcdfe", "acfe"));
+  console.log(lcs("abcdefghijklmnopq",                                  "apcdefghijklmnobq"));
 
-   console.log(checker("abcdef","c",3).el);
+  //  console.log(checker("abcdef","c",3));
   //  console.log()
-
 //     [i]   `${}`      .length        
 
 //   console.log()  for (let i = 0; i < .length; i++)
